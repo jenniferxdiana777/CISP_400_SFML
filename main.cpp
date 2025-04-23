@@ -76,9 +76,9 @@ int main()
   spriteCloud3.setTexture(textureCloud);
   // Position the clouds on the left of the screen
   // at different heights
-  spriteCloud1.setPosition(0, 0);
-  spriteCloud2.setPosition(0, 250);
-  spriteCloud3.setPosition(0, 500);
+  spriteCloud1.setPosition(sf::Vector2f(0.f, 0.f));
+  spriteCloud2.setPosition(sf::Vector2f(0.f, 250.f));
+  spriteCloud3.setPosition(sf::Vector2f(0.f, 500.f));
   // Are the clouds currently on screen?
   bool cloud1Active = false;
   bool cloud2Active = false;
@@ -107,14 +107,10 @@ int main()
 
   // Draw some text
   int score = 0;
-  Text messageText;
-  Text scoreText;
-  // We need to choose a font
   Font font;
   font.loadFromFile("fonts/KOMIKAP_.ttf");
-  // Set the font to our message
-  messageText.setFont(font);
-  scoreText.setFont(font);
+  Text messageText(font);
+  Text scoreText(font);
   // Assign the actual message
   messageText.setString("Press Enter to start!");
   scoreText.setString("Score = 0");
@@ -276,7 +272,6 @@ int main()
         chop.play();
       }
       // Handle the left cursor key
-        // Handle the left cursor key
       if (Keyboard::isKeyPressed(Keyboard::Left))
       {
         // Make sure the player is on the left
